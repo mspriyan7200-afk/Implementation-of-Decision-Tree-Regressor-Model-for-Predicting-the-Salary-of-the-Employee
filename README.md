@@ -17,13 +17,56 @@ To write a program to implement the Decision Tree Regressor Model for Predicting
 ```
 /*
 Program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
-Developed by: 
-RegisterNumber:  
+Developed by: PRIYAN M
+RegisterNumber:  212225040320
 */
+
+import pandas as pd# Load Dataset
+dataset = pd.read_csv("C:/Users/acer/Downloads/Salary.csv")
+
+print(dataset.head())
+
+# Correct Feature Selection
+X = dataset.iloc[:, 1:2].values   # Level
+y = dataset.iloc[:, 2].values     # Salary
+
+# Train Test Split
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=0
+)
+
+# Model
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state=0)
+regressor.fit(X_train, y_train)
+
+# Prediction
+y_pred = regressor.predict(X_test)
+
+# Evaluation
+from sklearn.metrics import mean_squared_error, r2_score
+print("MSE:", mean_squared_error(y_test, y_pred))
+print("R2 Score:", r2_score(y_test, y_pred))
+
+# Visualization
+import numpy as np
+import matplotlib.pyplot as plt
+
+X_grid = np.arange(X.min(), X.max(), 0.01)
+X_grid = X_grid.reshape((len(X_grid), 1))
+
+plt.scatter(X, y)
+plt.plot(X_grid, regressor.predict(X_grid))
+plt.title("Decision Tree Regression")
+plt.xlabel("Level")
+plt.ylabel("Salary")
+plt.show()
 ```
 
 ## Output:
-![Decision Tree Regressor Model for Predicting the Salary of the Employee](sam.png)
+<img width="730" height="685" alt="Screenshot 2026-02-25 133910" src="https://github.com/user-attachments/assets/3cf75d66-4d1f-4e70-8072-c6bffd2647a8" />
+
 
 
 ## Result:
