@@ -14,9 +14,9 @@ To write a program to implement the Decision Tree Regressor Model for Predicting
 
 3.Find the slope m of the line of best fit using the formula.
 
-4. Compute the y -intercept of the line by using the formula.
+4.Compute the y -intercept of the line by using the formula.
 
-5. Use the slope m and the y -intercept to form the equation of the line. 6. Obtain the straight line equation Y=mX+b and plot the scatterplot.
+5.Use the slope m and the y -intercept to form the equation of the line. 6. Obtain the straight line equation Y=mX+b and plot the scatterplot.
 
 
 
